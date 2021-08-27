@@ -16,7 +16,7 @@ RUN npm run build
 ##########################
 ## Application Container
 ##########################
-FROM node:16.8.0-alpine3.12 as builder
+FROM node:16.8.0-alpine3.12
 
 WORKDIR /app
 
