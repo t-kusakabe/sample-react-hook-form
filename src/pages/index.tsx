@@ -11,11 +11,22 @@ const App: React.FC = () => {
 
   const onSubmit = (data: any) => console.log(data);
 
+  const Title = watch('title');
+  const Content = watch('content');
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("title", {required: true, maxLength: 30})} />
-      <textarea {...register("content", {required: true, maxLength: 100})} />
-      {errors.title && <span>タイトル必須</span>}
+      <div>
+        <input {...register("title", {required: true, maxLength: 30})} />
+        {Title ? "OK" : "必須"}
+        {errors.title && <span>タイトル必須</span>}
+      </div>
+
+      <div>
+        <textarea {...register("content", {required: true, maxLength: 100})} />
+        {Content ? "OK" :"必須"}
+        {errors.content && <span>タイトル必須</span>}
+      </div>
 
       <input type="submit" />
     </form>
